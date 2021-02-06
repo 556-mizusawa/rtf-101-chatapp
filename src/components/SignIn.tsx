@@ -68,6 +68,12 @@ const SignIn: React.FC<{ setName: any }> = ({ setName }) => {
             name="name"
             autoFocus
             onChange={(e) => setString(e.target.value)}
+            onKeyDown={(e: any) => {
+              if (e.key === 'Enter') {
+                setName(e.target.value);
+                e.preventDefault();
+              }
+            }}
           />
           <Button
             type="button"
