@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const SignIn = (setName: any) => {
+const SignIn: React.FC<{ setName: any }> = ({ setName }) => {
   const classes = useStyles();
   const [disabled, setDisabled] = useState<boolean>(true);
   const [string, setString] = useState<string>('');
@@ -70,12 +70,15 @@ const SignIn = (setName: any) => {
             onChange={(e) => setString(e.target.value)}
           />
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
             disabled={disabled}
+            onClick={() => {
+              setName(string);
+            }}
           >
             はじめる
           </Button>
