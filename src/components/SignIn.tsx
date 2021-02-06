@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
-
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -42,6 +41,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const SignIn = (setName: any) => {
   const classes = useStyles();
+  const [disabled, setDisabled] = useState<boolean>(true);
+  const [string, setString] = useState<string>('');
+  console.log({ disabled, string });
+
+  useEffect(() => {
+    const disabled = string === '';
+    setDisabled(disabled);
+  }, [string]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -60,6 +67,7 @@ const SignIn = (setName: any) => {
             label="ニックネーム"
             name="name"
             autoFocus
+            onChange={(e) => setString(e.target.value)}
           />
           <Button
             type="submit"
@@ -67,6 +75,7 @@ const SignIn = (setName: any) => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={disabled}
           >
             はじめる
           </Button>
