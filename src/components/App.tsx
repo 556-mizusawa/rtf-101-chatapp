@@ -10,7 +10,7 @@ const App: React.FC<{}> = () => {
   if (config.signInEnabled && name === '') {
     return <SignIn setName={setName} />;
   } else {
-    return <Main />;
+    return <Main name={name} />;
   }
 };
 
