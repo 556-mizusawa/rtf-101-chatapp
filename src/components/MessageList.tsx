@@ -1,11 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  root: {
-    gridRow: 1,
-  },
-});
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      gridRow: 1,
+    },
+  })
+);
 
 const MessageList: React.FC<{}> = () => {
   const classes = useStyles();
