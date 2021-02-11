@@ -1,6 +1,8 @@
 import React, { Dispatch, useState } from 'react';
 import { TextField } from '@material-ui/core';
 
+import { pushMessage } from '../firebase';
+
 interface MessageInputFieldProps {
   name: string;
   setText: Dispatch<string>;
@@ -12,7 +14,6 @@ const MessageField: React.FC<MessageInputFieldProps> = ({
   setText,
   text,
 }) => {
-  console.log({ text });
   const [isComposed, setIsComposed] = useState<boolean>(false);
 
   return (
@@ -28,7 +29,7 @@ const MessageField: React.FC<MessageInputFieldProps> = ({
         if (text === '') return;
 
         if (e.key === 'Enter') {
-          console.log('push message to firebase');
+          pushMessage({ name: '556', text });
           setText('');
           e.preventDefault();
         }
