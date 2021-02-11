@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
-const messageRef = database.ref('messages');
+const messagesRef = database.ref('messages');
 
 interface pushMessageProps {
   name: string;
@@ -20,5 +20,5 @@ interface pushMessageProps {
 }
 
 export const pushMessage = ({ name, text }: pushMessageProps) => {
-  messageRef.push({ name, text });
+  messagesRef.push({ name, text });
 };
