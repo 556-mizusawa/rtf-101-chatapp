@@ -5,6 +5,7 @@ import { pushMessage } from '../firebase';
 import { MessageProps } from '../actions';
 
 const MessageSubmitButton: React.FC<MessageProps> = ({
+  inputEl,
   name,
   setText,
   text,
@@ -15,6 +16,7 @@ const MessageSubmitButton: React.FC<MessageProps> = ({
       onClick={() => {
         pushMessage({ name: '556', text });
         setText('');
+        inputEl.current.focus();
       }}
     >
       <SendIcon />
