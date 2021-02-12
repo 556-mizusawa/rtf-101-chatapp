@@ -1,19 +1,10 @@
-import React, { Dispatch, useState } from 'react';
+import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
 
 import { pushMessage } from '../firebase';
+import { MessageProps } from '../actions';
 
-interface MessageInputFieldProps {
-  name: string;
-  setText: Dispatch<string>;
-  text: string;
-}
-
-const MessageField: React.FC<MessageInputFieldProps> = ({
-  name,
-  setText,
-  text,
-}) => {
+const MessageField: React.FC<MessageProps> = ({ name, setText, text }) => {
   const [isComposed, setIsComposed] = useState<boolean>(false);
 
   return (

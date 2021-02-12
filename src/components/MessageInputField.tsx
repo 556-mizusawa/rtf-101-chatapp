@@ -3,6 +3,7 @@ import { Avatar, Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { gravaterPath } from '../gravater';
 import MessageFeild from './MessageField';
+import MessageSubmitButton from './MessageSubmitButton';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,7 +29,7 @@ const MessageInputField: React.FC<{ name: string }> = ({ name }) => {
           <MessageFeild name={name} setText={setText} text={text} />
         </Grid>
         <Grid item xs={1}>
-          ボタン
+          <MessageSubmitButton name={name} setText={setText} text={text} />
         </Grid>
       </Grid>
     </div>
