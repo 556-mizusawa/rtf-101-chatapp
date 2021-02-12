@@ -14,7 +14,7 @@ const MessageSubmitButton: React.FC<MessageProps> = ({
     <IconButton
       disabled={text === ''}
       onClick={() => {
-        pushMessage({ name: '556', text });
+        pushMessage({ name, text });
         setText('');
         inputEl.current.focus();
       }}

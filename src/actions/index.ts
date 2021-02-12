@@ -7,6 +7,7 @@ export interface MessageProps {
   text: string;
 }
 export interface MessageObjects {
+  isLastItem: boolean;
   key: string;
   name: string;
   text: string;

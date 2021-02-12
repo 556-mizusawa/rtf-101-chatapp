@@ -36,13 +36,21 @@ const MessageList: React.FC<{}> = () => {
       });
   }, []);
 
+  const length = messages.length;
+
+  console.log({ messages });
+
   return (
     <List className={classes.root}>
-      {messages.map(({ key, name, text }: MessageObjects) => {
+      {messages.map(({ key, name, text }: MessageObjects, index: number) => {
+        const isLastItem = length === index + 1;
         return (
-          <MessageItem key={key} name={name} text={text}>
-            item
-          </MessageItem>
+          <MessageItem
+            key={key}
+            name={name}
+            text={text}
+            isLastItem={isLastItem}
+          />
         );
       })}
     </List>
