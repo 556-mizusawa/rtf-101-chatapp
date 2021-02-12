@@ -1,15 +1,11 @@
-import React, { Dispatch, useState } from 'react';
+import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
 
 import { pushMessage } from '../firebase';
+import { MessageProps } from '../actions';
 
-interface MessageInputFieldProps {
-  name: string;
-  setText: Dispatch<string>;
-  text: string;
-}
-
-const MessageField: React.FC<MessageInputFieldProps> = ({
+const MessageField: React.FC<MessageProps> = ({
+  inputEl,
   name,
   setText,
   text,
@@ -18,7 +14,9 @@ const MessageField: React.FC<MessageInputFieldProps> = ({
 
   return (
     <TextField
+      autoFocus
       fullWidth={true}
+      inputRef={inputEl}
       onChange={(e) => {
         setText(e.target.value);
       }}
@@ -29,7 +27,7 @@ const MessageField: React.FC<MessageInputFieldProps> = ({
         if (text === '') return;
 
         if (e.key === 'Enter') {
-          pushMessage({ name: '556', text });
+          pushMessage({ name, text });
           setText('');
           e.preventDefault();
         }
