@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Avatar, Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { gravaterPath } from '../gravater';
+import { gravatarPath } from '../gravatar';
 import MessageFeild from './MessageField';
 import MessageSubmitButton from './MessageSubmitButton';
 
@@ -18,7 +18,7 @@ const MessageInputField: React.FC<{ name: string }> = ({ name }) => {
   const inputEl = useRef<HTMLDivElement>(null);
   const [text, setText] = useState<string>('');
   const classes = useStyles();
-  const avatarPath = gravaterPath(name);
+  const avatarPath = gravatarPath(name);
 
   return (
     <div className={classes.root}>

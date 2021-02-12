@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-export const gravaterPath = (string: string) => {
+export const gravatarPath = (string: string) => {
   const lowerCaseString = string.trim().toLowerCase();
   const md5 = crypto.createHash('md5');
   const digest = md5.update(lowerCaseString, 'binary').digest('hex');

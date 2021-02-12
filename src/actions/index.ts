@@ -6,3 +6,8 @@ export interface MessageProps {
   setText: Dispatch<string>;
   text: string;
 }
+export interface MessageObjects {
+  key: string;
+  name: string;
+  text: string;
+}

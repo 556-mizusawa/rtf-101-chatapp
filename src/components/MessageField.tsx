@@ -27,7 +27,7 @@ const MessageField: React.FC<MessageProps> = ({
         if (text === '') return;
 
         if (e.key === 'Enter') {
-          pushMessage({ name: '556', text });
+          pushMessage({ name, text });
           setText('');
           e.preventDefault();
         }
