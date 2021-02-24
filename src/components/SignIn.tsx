@@ -74,6 +74,7 @@ const SignIn: React.FC<{ setName: any }> = ({ setName }) => {
 
               if (e.key === 'Enter') {
                 setName(e.target.value);
+                alert('hello');
                 e.preventDefault();
               }
             }}
@@ -93,6 +94,7 @@ const SignIn: React.FC<{ setName: any }> = ({ setName }) => {
             disabled={disabled}
             onClick={() => {
               setName(string);
+              alert('hello');
             }}
           >
             はじめる
